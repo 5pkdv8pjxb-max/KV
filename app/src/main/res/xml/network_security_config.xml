@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">cbr.ru</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <!-- HARICA TLS RSA Root CA 2021, official source:
+                 https://repo.harica.gr/certs/HARICA-TLS-Root-2021-RSA.cer
+                 SHA-256: D95D0E8EDA79525BF9BEB11B14D2100D3294985F0C62D9FABD9CD999ECCB7B1D
+                 Extra trust anchor scoped to CBR for older Android devices. -->
+            <certificates src="@raw/harica_tls_rsa_root_2021" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
